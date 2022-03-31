@@ -1,0 +1,226 @@
+<html>
+<head>
+     <style>
+        h1{
+            color:Red;
+        }
+        .title_tabela{
+            background-color: black;
+            color:white;
+            font-weight: bold;
+        }
+        .tabela{
+            border: black solid 4px;
+            width:1000;
+            height:120;        
+        }
+     </style>
+</head>
+<body>
+<h1>Pégada Ecológica</h1>
+
+
+<form action="pegada.php" method="post">
+    Nome: <input type=text name="nome"><br><br>
+    Data de nascimento: <input type=text name="data"><br><br>
+    Sexo: 
+    <select name="sexo">
+        <option value=""></option>
+        <option value="Masculino">Masculino</option>
+        <option value="Feminino">Feminino</option>
+        <option value="Outro">Outro</option>
+        <option value="Prefiro não divulgar">Prefiro não divulgar</option>
+    </select>
+    <br><br>
+    Tamanho das orelhas:<br>
+    <input type="radio" name="orelha" value="S">S<br>
+    
+    <input type="radio" name="orelha" value="M">M<br>
+    
+    <input type="radio" name="orelha" value="L">L<br>
+
+    <br>
+    <br>
+<table class="tabela">
+<tr>
+    <td class="title_tabela">1) Ao fazer compras no supermercado:</td> 
+</tr>
+
+    <tr><td><input type="radio" name="radio1" value="4"> Compro tudo que tenho vontade, sem prestar atenção no preço, na marca ou na embalagem;   </td></tr>
+    <tr><td><input type="radio" name="radio1" value="3"> Uso apenas o preço como critério de escolha;   </td></tr>
+    <tr><td><input type="radio" name="radio1" value="2"> Presto atenção se os produtos de uma determinada marca são ligados a alguma empresa que não respeita o meio ambiente ou questões sociais;   </td></tr>
+    <tr><td><input type="radio" name="radio1" value="1"> Procuro considerar preço e qualidade, além de escolher produtos que venham em embalagens recicláveis e que respeitem critérios ambientais e sociais.   </td></tr>
+
+</table><br><br>
+
+<table class="tabela">
+<tr>
+    <td class="title_tabela">2) Entre os alimentos que normalmente você consome, que quantidade é pré-preparada, embalada ou importada?</td> 
+</tr>
+
+    <tr><td><input type="radio" name="radio2" value="4"> Quase todos;   </td></tr>
+    <tr><td><input type="radio" name="radio2" value="3"> Metade;</td></tr>
+    <tr><td><input type="radio" name="radio2" value="2"> Um quarto;   </td></tr>
+    <tr><td><input type="radio" name="radio2" value="1"> Muito poucos. A maior parte dos alimentos que consumo não é pré-preparada nem embalada, tem origem orgânica e é produzida na região onde vivo.   </td></tr>
+
+</table><br><br>
+
+<table class="tabela">
+<tr>
+    <td class="title_tabela">3) O que acontece com o lixo produzido na sua casa?</td> 
+</tr>
+
+    <tr><td><input type="radio" name="radio3" value="4"> Não me preocupo muito com o lixo;</td></tr>
+    <tr><td><input type="radio" name="radio3" value="3"> Tudo é colocado em sacos recolhidos pelo lixeiro, mas não faço a menor idéia para onde vai;</td></tr>
+    <tr><td><input type="radio" name="radio3" value="2"> O que é reciclável é separado;</td></tr>
+    <tr><td><input type="radio" name="radio3" value="1"> O lixo seco é direcionado à reciclagem e o lixo orgânico, encaminhado para a compostagem (transformação em adubo).  </td></tr>
+
+</table><br><br>
+
+<table class="tabela">
+<tr>
+    <td class="title_tabela">4) Que eletrodomésticos você utiliza (escolha a opção que mais se pareça com a situação de sua casa)?</td> 
+</tr>
+
+    <tr><td><input type="radio" name="radio4" value="4"> Geladeira, freezer, máquina de lavar roupa/tanquinho e forno de microondas;</td></tr>
+    <tr><td><input type="radio" name="radio4" value="3"> Geladeira e máquina de lavar roupa/tanquinho;</td></tr>
+    <tr><td><input type="radio" name="radio4" value="2"> Geladeira e forno microondas;</td></tr>
+    <tr><td><input type="radio" name="radio4" value="1"> Geladeira.  </td></tr>
+
+</table><br><br>
+
+<table class="tabela">
+<tr>
+    <td class="title_tabela">5) Você considera, na sua escolha de compras de eletrodomésticos e lâmpadas, informações referentes à eficiência energética do produto (se o produto consome menos energia).</td> 
+</tr>
+
+    <tr><td><input type="radio" name="radio5" value="4"> Não. Compro sempre as lâmpadas e os eletrodomésticos que estiverem mais baratos;</td></tr>
+    <tr><td><input type="radio" name="radio5" value="3"> Utilizo lâmpadas frias, mas não levo em consideração a eficiência energética de eletrodomésticos;</td></tr>
+    <tr><td><input type="radio" name="radio5" value="2"> Compro eletrodomésticos que consomem menos energia e utilizo lâmpadas incandescentes(amarelas); </td></tr>
+    <tr><td><input type="radio" name="radio5" value="1"> Sim. Só utilizo lâmpadas frias e compro os eletrodomésticos que consomem menos energia.</td></tr>
+
+</table><br><br>
+
+<table class="tabela">
+<tr>
+    <td class="title_tabela">6) Você deixa luz, aparelhos de som, computadores ou televisão ligados quando não estão sendo utilizados?</td> 
+</tr>
+
+    <tr><td><input type="radio" name="radio6" value="4"> Sim. Deixo luzes acesas, computador e tv ligados, mesmo quando não estou no ambiente ou utilizando-os;</td></tr>
+    <tr><td><input type="radio" name="radio6" value="3"> Deixo a luz dos cômodos ligada quando sei que em alguns minutos vou voltar ao local;</td></tr>
+    <tr><td><input type="radio" name="radio6" value="2"> Deixo o computador ligado, mas desligo o monitor quando não estou utilizando; </td></tr>
+    <tr><td><input type="radio" name="radio6" value="1"> Não. Sempre desligo os aparelhos e lâmpadas quando não estou utilizando, ou deixo o computador em estado de hibernação (stand by).</td></tr>
+
+</table><br><br>
+
+
+<table class="tabela">
+<tr>
+    <td class="title_tabela">7) Quantas vezes por semana, em média, você liga o ar condicionado em casa ou no trabalho?</td> 
+</tr>
+
+    <tr><td><input type="radio" name="radio7" value="4"> Praticamente todos os dias;</td></tr>
+    <tr><td><input type="radio" name="radio7" value="3"> Entre três e quatro vezes;</td></tr>
+    <tr><td><input type="radio" name="radio7" value="2"> Entre uma e duas vezes por semana;</td></tr>
+    <tr><td><input type="radio" name="radio7" value="1"> Não tenho ar condicionado.</td></tr>
+
+</table><br><br>
+
+<table class="tabela">
+<tr>
+    <td class="title_tabela">8) Quanto tempo você leva, em média, tomando banho diariamente?</td> 
+</tr>
+
+    <tr><td><input type="radio" name="radio8" value="4"> Mais de 20 minutos;</td></tr>
+    <tr><td><input type="radio" name="radio8" value="3"> Entre 10 e 20 minutos;</td></tr>
+    <tr><td><input type="radio" name="radio8" value="2"> Entre 10 e 5 minutos;</td></tr>
+    <tr><td><input type="radio" name="radio8" value="1"> Menos de 5 minutos.</td></tr>
+
+</table><br><br>
+
+<table class="tabela">
+<tr>
+    <td class="title_tabela">9) Quando você escova os dentes:</td> 
+</tr>
+
+    <tr><td><input type="radio" name="radio9" value="4"> A torneira permanece aberta o tempo todo;</td></tr>
+    <tr><td><input type="radio" name="radio9" value="1"> A torneira é aberta apenas para molhar a escova e na hora de enxaguar a boca.</td></tr>
+
+</table><br><br>
+
+<table class="tabela">
+<tr>
+    <td class="title_tabela">10) Quantos habitantes moram em sua cidade?</td> 
+</tr>
+
+    <tr><td><input type="radio" name="radio10" value="8"> Acima de 500 mil pessoas;</td></tr>
+    <tr><td><input type="radio" name="radio10" value="6"> De 100 mil a 500 mil pessoas;</td></tr>
+    <tr><td><input type="radio" name="radio10" value="4"> De 20 mil a 100 mil pessoas;</td></tr>
+    <tr><td><input type="radio" name="radio10" value="2"> Menos de 20 mil pessoas.</td></tr>
+
+</table><br><br>
+
+<table class="tabela">
+<tr>
+    <td class="title_tabela">11) Quantas pessoas vivem na sua casa ou apartamento?</td> 
+</tr>
+
+    <tr><td><input type="radio" name="radio11" value="8"> 1 pessoa;</td></tr>
+    <tr><td><input type="radio" name="radio11" value="6"> 2 pessoas;</td></tr>
+    <tr><td><input type="radio" name="radio11" value="4"> 3 pessoas;</td></tr>
+    <tr><td><input type="radio" name="radio11" value="2"> 4 pessoas ou mais.</td></tr>
+
+</table><br><br>
+
+<table class="tabela">
+<tr>
+    <td class="title_tabela">12) Qual é a área da sua casa/apartamento?</td> 
+</tr>
+
+    <tr><td><input type="radio" name="radio12" value="8"> 170 metros quadrados ou mais;</td></tr>
+    <tr><td><input type="radio" name="radio12" value="6"> De 100 a 170 metros quadrados (3 quartos);</td></tr>
+    <tr><td><input type="radio" name="radio12" value="4"> De 50 a 100 metros quadrados (2 quartos);</td></tr>
+    <tr><td><input type="radio" name="radio12" value="2"> 50 metros quadrados ou menos (1 quarto).</td></tr>
+
+</table><br><br>
+
+<table class="tabela">
+<tr>
+    <td class="title_tabela">13) Com que freqüência você consome produtos de origem animal(carne, peixe, ovos, laticínios)?</td> 
+</tr>
+
+    <tr><td><input type="radio" name="radio13" value="8"> Como carne todos os dias;</td></tr>
+    <tr><td><input type="radio" name="radio13" value="6"> Como carne uma ou duas vezes por semana;</td></tr>
+    <tr><td><input type="radio" name="radio13" value="4"> Como carne raramente, mas ovos/laticínios quase todos os dias;</td></tr>
+    <tr><td><input type="radio" name="radio13" value="2"> Nunca (vegetariano).</td></tr>
+
+</table><br><br>
+
+<table class="tabela">
+<tr>
+    <td class="title_tabela">14) Qual o tipo de transporte que você mais utiliza?</td> 
+</tr>
+
+    <tr><td><input type="radio" name="radio14" value="8"> Carro é meu único meio de transporte e, na maioria das vezes, ando sozinho;</td></tr>
+    <tr><td><input type="radio" name="radio14" value="6"> Tenho carro, mas procuro fazer a pé os percursos mais curtos e privilegio o uso de transporte coletivo sempre que possível;</td></tr>
+    <tr><td><input type="radio" name="radio14" value="4"> Não tenho carro e uso transporte coletivo;</td></tr>
+    <tr><td><input type="radio" name="radio14" value="2"> Não tenho carro, uso transporte coletivo quando necessário, mas ando muito a pé ou de bicicleta.</td></tr>
+
+</table><br><br>
+
+<table class="tabela">
+<tr>
+    <td class="title_tabela">15) Por ano, quantas horas você gasta andando de avião?</td> 
+</tr>
+
+    <tr><td><input type="radio" name="radio15" value="12"> Acima de 50 horas;</td></tr>
+    <tr><td><input type="radio" name="radio15" value="9"> 25 horas;</td></tr>
+    <tr><td><input type="radio" name="radio15" value="6"> 10 horas;</td></tr>
+    <tr><td><input type="radio" name="radio15" value="3"> Nunca ando de avião.</td></tr>
+
+</table><br><br>
+
+<input type=submit>
+</form>
+</body>
+</html>
