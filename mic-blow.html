@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blow Out the Candle 💨🎂</title>
+  <style>
+    body {
+      background: linear-gradient(180deg, #ffe6ee, #fff5f8);
+      font-family: "Inter", sans-serif;
+      text-align: center;
+      color: #2a2438;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 1.5rem;
+    }
+
+    .candle {
+      position: relative;
+      width: 30px;
+      height: 120px;
+      background: linear-gradient(180deg, #ffb6d2, #ff8fb8);
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    }
+
+    .wick {
+      position: absolute;
+      top: -10px;
+      left: 50%;
+      width: 4px;
+      height: 18px;
+      background: #333;
+      transform: translateX(-50%);
+      border-radius: 2px;
+    }
+
+    .flame {
+      position: absolute;
+      top: -36px;
+      left: 50%;
+      width: 20px;
+      height: 30px;
+      background: radial-gradient(circle at 50% 30%, #fff7d6, #ffd86b 70%);
+      border-radius: 50% 50% 45% 45%;
+      transform: translateX(-50%);
+      opacity: 0;
+    }
+
+    .lit .flame {
+      opacity: 1;
+      animation: flicker 0.15s infinite alternate;
+    }
+
+    @keyframes flicker {
+      from { transform: translateX(-50%) scale(1); }
+      to   { transform: translateX(-50%) scale(1.05); }
+    }
+
+    .puff::after {
+      content: "💨";
+      position: absolute;
+      top: -40px;
+      left: 50%;
+      transform: translateX(-50%) scale(2);
+      animation: blow 1s ease-out forwards;
+    }
+
+    @keyframes blow {
+      0% { opacity: 1; transform: translate(-50%, -10px) scale(1.5); }
+      100% { opacity: 0; transform: translate(-50%, -50px) scale(2.5); }
+    }
+
+    button {
+      background: linear-gradient(180deg, #ff6aa2, #f24f8d);
+      color: white;
+      border: none;
+      border-radius: 12px;
+      padding: 10px 16px;
+      cursor: pointer;
+      box-shadow: 0 5px 15px rgba(212,72,127,0.3);
+      font-size: 16px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Blow Out the Candle 💨🎂</h1>
+  <p id="info">Click below to start — then blow gently into your mic!</p>
+
+  <div class="candle lit" id="candle">
+    <div class="flame"></div>
+    <div class="wick"></div>
+  </div>
+
+  <button id="startBtn">Start Microphone</button>
+
+  <script>
+    /*
+      💡 How this works:
+      - When you click “Start Microphone,” we ask for permission to use the mic.
+      - We measure the average audio level coming in.
+      - If the level passes a threshold (a “blow” sound), we extinguish the flame.
+    */
+
+    const startBtn = document.getElementById("startBtn");
+    const candle = document.getElementById("candle");
+    const info = document.getElementById("info");
+    let micStream, audioContext, analyser, dataArray;
+
+    async function startMic() {
+      try {
+        // Ask for microphone permission
+        micStream = await navigator.mediaDevices.getUserMedia({ audio: true });
+        audioContext = new AudioContext();
+
+        // Connect microphone input to analyser node
+        const source = audioContext.createMediaStreamSource(micStream);
+        analyser = audioContext.createAnalyser();
+        analyser.fftSize = 256;
+        dataArray = new Uint8Array(analyser.fftSize);
+        source.connect(analyser);
+
+        info.textContent = "Listening... Blow to extinguish the flame! 💨";
+        listenForBlow();
+      } catch (err) {
+        info.textContent = "Microphone access denied 😔";
+        console.error(err);
+      }
+    }
+
+    function listenForBlow() {
+      const checkVolume = () => {
+        analyser.getByteTimeDomainData(dataArray);
+
+        // Compute average loudness
+        let sum = 0;
+        for (let i = 0; i < dataArray.length; i++) {
+          const sample = dataArray[i] - 128;
+          sum += Math.abs(sample);
+        }
+        const avg = sum / dataArray.length;
+
+        // 🎯 Threshold: adjust if it's too sensitive or not enough
+        if (avg > 18) { // blow or clap detected
+          info.textContent = "Blow detected! Flame out 🎉";
+          blowOutCandle();
+        } else {
+          requestAnimationFrame(checkVolume);
+        }
+      };
+      checkVolume();
+    }
+
+    function blowOutCandle() {
+      candle.classList.remove("lit");
+      candle.classList.add("puff");
+
+      // Stop listening to mic
+      if (micStream) micStream.getTracks().forEach(t => t.stop());
+    }
+
+    startBtn.addEventListener("click", startMic);
+  </script>
+</body>
+</html>

@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Our Love Story 💞</title>
+
+  <style>
+    /* === Base Styles === */
+    body {
+      font-family: "Poppins", sans-serif;
+      background: linear-gradient(135deg, #ffe6f0, #ffe1ec);
+      color: #333;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+      animation: fadeIn 1.5s ease-in;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 60px auto;
+      background: white;
+      padding: 30px;
+      border-radius: 16px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      color: #e91e63;
+      font-size: 2em;
+    }
+
+    h3 {
+      margin-top: 40px;
+      color: #d81b60;
+    }
+
+    #counter {
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
+
+    /* === Reasons Grid (3 per row) === */
+    .reasons-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px;
+      margin-top: 15px;
+      text-align: center;
+    }
+
+    .reason-item {
+      background: #ffe4ed;
+      padding: 12px;
+      border-radius: 10px;
+      transition: transform 0.3s, background 0.3s;
+    }
+
+    .reason-item:hover {
+      background: #ffd6e5;
+      transform: translateY(-5px);
+    }
+
+    /* === Gallery Grid (3 per row) === */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px;
+      justify-items: center;
+      margin-top: 15px;
+    }
+
+    .gallery-grid img {
+      width: 100%;
+      max-width: 250px;
+      border-radius: 12px;
+      transition: transform 0.3s, box-shadow 0.3s;
+      cursor: pointer;
+    }
+
+    .gallery-grid img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    }
+
+    .center {
+      text-align: center;
+      margin-top: 30px;
+    }
+
+    .btn {
+      background: #e91e63;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      padding: 10px 20px;
+      font-size: 1em;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .btn:hover {
+      background: #c2185b;
+    }
+
+    /* Responsive (for phones/tablets) */
+    @media (max-width: 800px) {
+      .reasons-grid,
+      .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 500px) {
+      .reasons-grid,
+      .gallery-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h2>Our Love Story 💖</h2>
+    <p id="counter"></p>
+
+    <h3>Reasons Why I Love You</h3>
+    <div class="reasons-grid" id="reasons"></div>
+
+    <h3>Our Photos</h3>
+    <div class="gallery-grid">
+      <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=800" alt="Beach" />
+      <img src="https://images.unsplash.com/photo-1521334726092-b509a19597c6?q=80&w=800" alt="Coffee" />
+      <img src="https://images.unsplash.com/photo-1519335665485-5a47a6c89d15?q=80&w=800" alt="City" />
+      <!-- 💕 Add more images below -->
+      <!-- <img src="your-photo-1.jpg" alt="Memory 1" /> -->
+      <!-- <img src="your-photo-2.jpg" alt="Memory 2" /> -->
+      <!-- <img src="your-photo-3.jpg" alt="Memory 3" /> -->
+    </div>
+
+    <div class="center">
+      <button class="btn" onclick="fadeTo('index.html')">Back to Start 💌</button>
+    </div>
+  </div>
+
+  <script>
+    // 💘 Fade transition
+    function fadeTo(url) {
+      document.body.style.opacity = 0;
+      setTimeout(() => (window.location.href = url), 500);
+    }
+
+    // 💘 Calculate days together
+    const LOVE_START_DATE = "2022-06-10"; // <-- change this
+    const counter = document.getElementById("counter");
+    const start = new Date(LOVE_START_DATE);
+    const now = new Date();
+    const diff = now - start;
+    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    counter.innerHTML = `We’ve been together for <strong>${days}</strong> days 💕`;
+
+    // 💘 Reasons
+    const REASONS = [
+      "Your smile makes my day 😊",
+      "You understand me like no one else 💞",
+      "You’re my calm in the chaos 🌸",
+      "You make everything feel magical ✨",
+      "You’re my forever person 💖",
+      "You give the best hugs 🤗",
+      "You always make me laugh 😂",
+      "You believe in me 🌟",
+      "You make my world brighter ☀️",
+    ];
+
+    const list = document.getElementById("reasons");
+    REASONS.forEach((r) => {
+      const div = document.createElement("div");
+      div.className = "reason-item";
+      div.textContent = r;
+      list.appendChild(div);
+    });
+  </script>
+</body>
+</html>
